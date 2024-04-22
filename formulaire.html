@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Inscription</title>
+<style>
+       form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="password"],
+    select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<form id="registerForm" onsubmit="return validateForm()">
+    <h2>Inscription</h2>
+    <div class="form-group">
+        <label for="firstname">Prénom:</label>
+        <input type="text" id="firstname" required>
+    </div>
+    <div class="form-group">
+        <label for="lastname">Nom:</label>
+        <input type="text" id="lastname" required>
+    </div>
+    <div class="form-group">
+        <label for="city">Ville:</label>
+        <input type="text" id="city" required>
+    </div>
+    <div class="form-group">
+        <label for="dob">Date de naissance:</label>
+        <input type="date" id="dob" required>
+    </div>
+    <div class="form-group">
+        <label for="interests">Centre d'intérêt:</label>
+        <select id="interests" required>
+            <option value="">Choisir...</option>
+            <option value="sports">Sports</option>
+            <option value="music">Musique</option>
+            <option value="books">Livres</option>
+            <option value="movies">Films</option>
+            <!-- Ajoutez d'autres options si nécessaire -->
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="password">Nouveau mot de passe:</label>
+        <input type="password" id="password" required>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Confirmer le mot de passe:</label>
+        <input type="password" id="confirmPassword" required>
+    </div>
+    <button type="submit">S'inscrire</button>
+</form>
+
+<script>
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var firstname = document.getElementById("firstname").value;
+    
+        if (password.length < 8) {
+            alert("Le mot de passe doit contenir au moins 8 caractères !");
+            return false;
+        }
+    
+        if (password != confirmPassword) {
+            alert("Les mots de passe ne correspondent pas !");
+            return false;
+        }
+    
+        if (firstname.charAt(0) !== firstname.charAt(0).toUpperCase()) {
+            alert("Le prénom doit commencer par une lettre majuscule !");
+            return false;
+        }
+    
+        return true;
+    }
+    </script>
+
+</body>
+</html>
