@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Pull Docker images
                 sh 'docker pull belhadjkhaoula07900/page_web:latest'
-                sh 'docker pull belhadjkhaoula07900/nginx:latest'
+                sh 'docker pull nginx:latest'
                 
                 // Start services using Docker Compose
                 sh 'docker-compose up -d'
