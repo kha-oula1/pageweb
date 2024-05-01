@@ -22,6 +22,7 @@ pipeline {
         
         stage('Push to GitHub') {
             steps {
+                sh 'git config --global --add safe.directory /home/khaoula/page_web'
                 sh 'git add .'
                 sh 'git commit -m "Jenkinsfile"'
                 sh 'git push'
