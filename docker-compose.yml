@@ -4,8 +4,7 @@ services:
   web:
     image: nginx
     ports:
-      - "81:80"
+      - "8180:80"
     volumes:
       - "/home/khaoula/page_web:/usr/share/nginx/html"
     restart: always
-
