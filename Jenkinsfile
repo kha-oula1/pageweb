@@ -12,20 +12,19 @@ pipeline {
                   publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'jen.html', reportName: 'HTML Report',                   reportTitles: '', useWrapperFileDirectly: true])
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'docker pull belhadjkhaoula07900/page_web:latest'
+                sh 'docker pull nginx:latest'
+                sh 'docker-compose up -d'
+            }
+        }
         
         stage('Push to GitHub') {
             steps {
                 sh 'git add .'
                 sh 'git commit -m "Jenkinsfile"'
                 sh 'git push'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                sh 'docker pull belhadjkhaoula07900/page_web:latest'
-                sh 'docker pull nginx:latest'
-                sh 'docker-compose up -d'
             }
         }
     }
