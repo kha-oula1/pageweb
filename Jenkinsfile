@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/kha-oula1/pageweb.git'
+               git branch: 'main', credentialsId: 'mytoken', url: 'https://github.com/kha-oula1/pageweb.git'
             }
         }
         
