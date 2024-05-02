@@ -19,13 +19,7 @@ pipeline {
             }
         }
         
-        stage('Run Docker Container') {
-            steps {
-                sh 'docker run -d -p 8180:80 --name myapp page_web'
-            }
-        }
-        
-stage('Push to Docker Hub') {
+        stage('Push to Docker Hub') {
             steps {
                 sh 'docker login -u belhadjkhaoula07900 -p khaoula@07'
                 sh 'docker tag page_web docker.io/belhadjkhaoula07900/page_web:latest'
