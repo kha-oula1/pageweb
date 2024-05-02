@@ -14,8 +14,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'docker pull belhadjkhaoula07900/page_web:latest'
-                sh 'docker pull nginx:latest'
+                sh 'docker login'
+                sh 'docker push docker.io/belhadjkhaoula07900/page_web:latest'
+                sh 'docker push belhadjkhaoula07900/page_web:latest'
                 sh 'docker-compose up -d'
             }
         }
