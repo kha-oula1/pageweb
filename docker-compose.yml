@@ -8,6 +8,12 @@ services:
     volumes:
       - "/home/khaoula/page_web:/usr/share/nginx/html"
     restart: always
-  
-
-
+  mongo-demo:
+    image: mongo:latest
+    container_name: mongo-demo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: mongodb
+    ports:
+      - "27017:27017"
+    restart: always
