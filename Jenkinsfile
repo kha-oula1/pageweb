@@ -24,6 +24,8 @@ pipeline {
                 sh 'docker login -u belhadjkhaoula07900 -p khaoula@07'
                 sh 'docker tag page_web docker.io/belhadjkhaoula07900/page_web:latest'
                 sh 'docker push docker.io/belhadjkhaoula07900/page_web:latest'
+                sh 'docker tag mongo docker.io/belhadjkhaoula07900/mongo:latest'
+                sh 'docker push docker.io/belhadjkhaoula07900/mongo:latest'
             }
         }
 
